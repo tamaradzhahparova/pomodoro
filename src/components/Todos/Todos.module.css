@@ -1,0 +1,27 @@
+.Todos {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    margin-bottom: 25px;
+    max-width: 370px;
+    height: 55px;
+    padding-left: 15px;
+    border: none;
+    background-color: #F4F4F4;
+}
+
+.input::placeholder {
+    font-size: 16px;
+    color: #999999;
+}
+
+.button {
+    padding: 19px 0;
+    max-width: 173px;
+    background-color: #A8B64F;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

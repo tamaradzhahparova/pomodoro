@@ -1,0 +1,18 @@
+.Guide {
+    margin-bottom: 25px;
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+}
+
+.list li {
+    padding-left: 10px;
+    font-size: 16px;
+    line-height: 33px;
+}
+
+.list li::marker {
+    color: #B7280F;
+}

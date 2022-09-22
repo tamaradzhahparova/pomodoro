@@ -1,0 +1,16 @@
+.Timer {
+    width: 55%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 19px 40px;
+    background-color: #C4C4C4;
+    color: white;
+}
+
+.todo {
+    font-weight: 700;
+}
+

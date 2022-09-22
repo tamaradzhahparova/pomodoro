@@ -1,0 +1,14 @@
+.Logo {
+    display: flex;
+    align-items: center;
+}
+
+.Logo svg {
+    margin-right: 13px;
+}
+
+.LogoText {
+    margin: 0;
+    color: #DC3E22;
+    font-size: 24px;
+}
