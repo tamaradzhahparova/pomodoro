@@ -14,3 +14,60 @@
     font-weight: 700;
 }
 
+.main {
+    padding: 65px 0;
+    background-color: #F4F4F4;
+    color: #333333;
+}
+
+.minutes {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 150px;
+    line-height: 179px;
+    font-weight: 100;
+}
+
+.buttonAdd {
+    position: absolute;
+    top: calc(50% - 25px);
+    right: -75px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+}
+
+.currentTodo {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.currentTodo span:first-child {
+    color: #999999;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.start, .pause {
+
+}
+
+.start {
+    margin-right: 26px;
+    padding: 19px 50px;
+    background-color: #A8B64F;
+    color: white;
+}
+
+.pause {
+    padding: 17px 49px;
+    border: 2px solid #C4C4C4;
+}
+

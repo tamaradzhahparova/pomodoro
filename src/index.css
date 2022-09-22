@@ -12,7 +12,12 @@
   src: url("./fonts/SFUIDisplay-Bold.woff2") format("woff2");
 }
 
-
+@font-face {
+  font-family: "SF UI Display";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./fonts/SFUIDisplay-Ultralight.woff2") format("woff2");
+}
 
 body {
   margin: 0;
@@ -25,4 +30,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }

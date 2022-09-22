@@ -10,8 +10,18 @@ const Timer: FC<TimerProps> = () => {
       <span className={styles.pomodoroCount}>Помидор 1</span>
     </header>
     <div className={styles.main}>
-      <div className={styles.minutes}>25:00</div>
-      <button className={styles.buttonAdd}>+</button>
+      <div className={styles.minutes}>25:00
+        <button className={styles.buttonAdd}>+</button>
+      </div>
+      <div className={styles.currentTodo}>
+        <span>Задача 1 - </span>
+        <span>Сверстать сайт</span>
+      </div>
+      <div className={styles.buttons}>
+        <button className={styles.start}>Старт</button>
+        <button className={styles.pause}>Стоп</button>
+      </div>
+
     </div>
   </div>)
 }

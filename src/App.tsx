@@ -14,7 +14,7 @@ function App() {
           <Guide />
           <Todos />
         </div>
-        {/*<Timer />*/}
+        <Timer />
       </main>
     </div>
   );
