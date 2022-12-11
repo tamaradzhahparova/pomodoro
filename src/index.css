@@ -19,6 +19,13 @@
   src: url("./fonts/SFUIDisplay-Ultralight.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "SF UI Display";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./fonts/SFUIDisplay-Light.woff2") format("woff2");
+}
+
 body {
   margin: 0;
   font-family: "SF UI Display", sans-serif;
@@ -36,4 +43,9 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  list-style-type: none;
 }

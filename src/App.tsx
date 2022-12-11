@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import Header from "./components/Header/Header";
 import Guide from "./components/Guide/Guide";
-import Todos from "./components/Todos/Todos";
 import Timer from "./components/Timer/Timer";
+import Todos from "./components/Todos/Todos";
 
 function App() {
   return (

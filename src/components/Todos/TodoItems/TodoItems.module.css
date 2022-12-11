@@ -1,0 +1,8 @@
+.todosWrapper {
+    padding-top: 25px;
+    padding-left: 0;
+}
+
+.todosWrapper li:first-child {
+    border-top: 1px solid #E4E4E4;
+}

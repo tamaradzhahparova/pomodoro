@@ -1,11 +1,11 @@
 .Todos {
     display: flex;
     flex-direction: column;
+    width: 70%;
 }
 
 .input {
     margin-bottom: 25px;
-    max-width: 370px;
     height: 55px;
     padding-left: 15px;
     border: none;

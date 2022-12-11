@@ -1,25 +1,21 @@
-// import { createSlice, configureStore } from '@reduxjs/toolkit'
-//
-// const initialState: {
-//   todos: []
-// }
-//
-// const todoSlice = createSlice({
-//   name: 'todo',
-//   initialState,
-//   reducers: {
-//     addTodo: (state, action) => {
-//       state.todos = [...state.todos, action.payload]
-//     },
-//     decremented: state => {
-//       state.value -= 1
-//     }
-//   }
-// })
-//
-// export const { incremented, decremented } = counterSlice.actions
-//
-// export const store = configureStore({
-//   reducer: todoSlice.reducer
-// })
-//
+import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit'
+import todosSlice from "./slices/todos";
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+
+
+export const store = configureStore({
+  reducer: {
+    todos: todosSlice
+  },
+})
+
+export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType,
+  RootState,
+  unknown,
+  Action<string>>
+
+
+export const useAppDispatch = () => useDispatch<AppDispatch>()
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
