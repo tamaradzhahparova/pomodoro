@@ -8,12 +8,14 @@ export interface Todo {
 
 interface TodosSlice {
   todos: Todo[]
+  duration: number
 }
 
 const initialState: TodosSlice = {
   todos: [
     {id: 0, name: 'задача тест', countOfPomodoro: 1}
-  ]
+  ],
+  duration: 25
 }
 
 export const todos = createSlice({

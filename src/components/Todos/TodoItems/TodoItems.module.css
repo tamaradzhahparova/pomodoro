@@ -1,8 +1,14 @@
 .todosWrapper {
     padding-top: 25px;
     padding-left: 0;
+    margin-bottom: 20px;
 }
 
 .todosWrapper li:first-child {
     border-top: 1px solid #E4E4E4;
+}
+
+.commonPomodoroCount {
+    font-size: 16px;
+    color: #999999;
 }
