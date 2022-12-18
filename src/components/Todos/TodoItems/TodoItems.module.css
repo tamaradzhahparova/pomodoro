@@ -4,7 +4,7 @@
     margin-bottom: 20px;
 }
 
-.todosWrapper li:first-child {
+.todosWrapper > li:first-child {
     border-top: 1px solid #E4E4E4;
 }
 
