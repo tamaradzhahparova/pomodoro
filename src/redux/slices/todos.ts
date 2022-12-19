@@ -4,6 +4,7 @@ export interface Todo {
   id: number
   name: string
   countOfPomodoro: number
+  active: boolean
 }
 
 interface TodosSlice {
@@ -13,7 +14,7 @@ interface TodosSlice {
 
 const initialState: TodosSlice = {
   todos: [
-    {id: 0, name: 'задача тест', countOfPomodoro: 1}
+    {id: 0, name: 'задача тест', countOfPomodoro: 1, active: true}
   ],
   duration: 25
 }

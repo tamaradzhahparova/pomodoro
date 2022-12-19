@@ -4,15 +4,16 @@ import {Minus} from "../../icons/Minus";
 import {Edit} from "../../icons/Edit";
 import {Delete} from "../../icons/Delete";
 import {useAppDispatch} from "../../../redux/store";
-import {decreasePomodoroCount, deleteTodo, increasePomodoroCount} from "../../../redux/slices/todos";
+import {decreasePomodoroCount, increasePomodoroCount} from "../../../redux/slices/todos";
 import {FC} from "react";
 
 interface DropdownProps {
   taskId: number
   setShowInput: (value: boolean) => void
+  setIsModalOpen: (value: boolean) => void
 }
 
-export const Dropdown: FC<DropdownProps> = ({taskId, setShowInput}) => {
+export const Dropdown: FC<DropdownProps> = ({taskId, setShowInput, setIsModalOpen}) => {
   const dispatch = useAppDispatch()
 
 
@@ -29,9 +30,9 @@ export const Dropdown: FC<DropdownProps> = ({taskId, setShowInput}) => {
         <Edit/>
         <span>Редактировать</span>
     </li>
-    <li className={s.dropdownItem} onClick={() => dispatch(deleteTodo(taskId))}>
-        <Delete/>
-        <span>Удалить</span>
+    <li className={s.dropdownItem} onClick={() => setIsModalOpen(true)}>
+      <Delete/>
+      <span>Удалить</span>
     </li>
   </ul>
 }

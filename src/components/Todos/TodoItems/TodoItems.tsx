@@ -15,7 +15,7 @@ export const TodoItems: FC<TodoItemsProps> = ({todos}) => {
   
   return (<>
     <ul className={s.todosWrapper}>
-      {todos.map(item => <TodoItem key={item.id} name={item.name} countOfPomodoro={item.countOfPomodoro} id={item.id}/>)}
+      {todos.map(item => <TodoItem key={item.id} name={item.name} countOfPomodoro={item.countOfPomodoro} id={item.id} isActive={item.active}/>)}
     </ul>
     <span className={s.commonPomodoroCount}>{pomodorToMinutes(commonPomodoroCount, duration)}</span>
   </>)
