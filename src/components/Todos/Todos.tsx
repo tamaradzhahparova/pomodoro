@@ -3,6 +3,7 @@ import styles from './Todos.module.css';
 import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {addTodo} from "../../redux/slices/todos";
 import {TodoItems} from "./TodoItems/TodoItems";
+import {onEnterDown} from "../../shared/helpers/onEnterDown";
 
 interface TodosProps {
 }
@@ -17,14 +18,11 @@ const Todos: FC<TodosProps> = () => {
     dispatch(addTodo({id: todos.length, name: newTask, countOfPomodoro: 1,}))
     setNewTask('')
   }
-
-  const onKeyDown = (key: string) => {
-    if (key === 'Enter') addNewTask()
-  }
+  
 
   return (<div className={styles.Todos}>
     <input value={newTask} className={styles.input} type='text' placeholder='Название задачи'
-           onChange={(e) => setNewTask(e.target.value)} onKeyDown={e => onKeyDown(e.code)}/>
+           onChange={(e) => setNewTask(e.target.value)} onKeyDown={e => onEnterDown(e.code, addNewTask)}/>
     <button className={styles.button} onClick={addNewTask}>Добавить</button>
     {!!todos.length && <TodoItems todos={todos}/>}
   </div>)

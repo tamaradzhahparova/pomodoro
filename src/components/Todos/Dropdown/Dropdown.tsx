@@ -4,14 +4,15 @@ import {Minus} from "../../icons/Minus";
 import {Edit} from "../../icons/Edit";
 import {Delete} from "../../icons/Delete";
 import {useAppDispatch} from "../../../redux/store";
-import {deleteTodo, increasePomodoroCount} from "../../../redux/slices/todos";
+import {decreasePomodoroCount, deleteTodo, increasePomodoroCount} from "../../../redux/slices/todos";
 import {FC} from "react";
 
 interface DropdownProps {
   taskId: number
+  setShowInput: (value: boolean) => void
 }
 
-export const Dropdown: FC<DropdownProps> = ({taskId}) => {
+export const Dropdown: FC<DropdownProps> = ({taskId, setShowInput}) => {
   const dispatch = useAppDispatch()
 
 
@@ -20,11 +21,11 @@ export const Dropdown: FC<DropdownProps> = ({taskId}) => {
         <Plus/>
         <span>Увеличить</span>
     </li>
-    <li className={s.dropdownItem}>
+    <li className={s.dropdownItem} onClick={() => dispatch(decreasePomodoroCount(taskId))}>
         <Minus/>
         <span>Уменьшить</span>
     </li>
-    <li className={s.dropdownItem}>
+    <li className={s.dropdownItem} onClick={() => setShowInput(true)} >
         <Edit/>
         <span>Редактировать</span>
     </li>

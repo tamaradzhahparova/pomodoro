@@ -1,15 +1,16 @@
 .todoItem {
     display: flex;
     justify-content: space-between;
-    /*padding: 15px 0;*/
     border-bottom: 1px solid #E4E4E4;
     font-weight: 300;
 }
 
 .left {
+    width: 100%;
     display: flex;
     align-items: center;
     padding: 15px 0;
+    flex-basis: 100%;
 }
 
 .pomodoroCount {
@@ -25,6 +26,7 @@
 
 .dropdownButton {
     position: relative;
+    padding-left: 15px;
 }
 
 .dropdownWrapper {
@@ -33,4 +35,11 @@
 
 .dropdownButton:hover > .dropdownWrapper  {
     display: block;
+}
+
+.editTaskInput {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-weight: 300;
 }
