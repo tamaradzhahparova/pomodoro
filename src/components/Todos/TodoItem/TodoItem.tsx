@@ -10,6 +10,7 @@ interface TodoItemProps {
   name: string
   countOfPomodoro: number,
   id: number
+  isActive: boolean
 }
 
 export const TodoItem: FC<TodoItemProps> = ({name, countOfPomodoro, id}) => {
