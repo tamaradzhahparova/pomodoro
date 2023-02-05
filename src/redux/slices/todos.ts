@@ -44,15 +44,28 @@ export const todos = createSlice({
         return todo
       })
     },
-    changeTaskName: (state, action: PayloadAction<{ name: string, id: number }>) => {
+    changeTodoName: (state, action: PayloadAction<{ name: string, id: number }>) => {
       state.todos = state.todos.map(todo => {
         if (todo.id === action.payload.id) return {...todo, name: action.payload.name}
         return todo
       })
     },
+    setActiveTodo: (state, action: PayloadAction<number>) => {
+      state.todos = state.todos.map(todo => {
+        if (todo.id === action.payload) return {...todo, active: true}
+        return {...todo, active: false}
+      })
+    },
   }
 })
 
-export const {addTodo, deleteTodo, increasePomodoroCount, decreasePomodoroCount, changeTaskName} = todos.actions
+export const {
+  addTodo,
+  deleteTodo,
+  increasePomodoroCount,
+  decreasePomodoroCount,
+  changeTodoName,
+  setActiveTodo
+} = todos.actions
 
 export default todos.reducer
