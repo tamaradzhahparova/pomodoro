@@ -1,12 +1,15 @@
-import React, { FC, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../../redux/store'
+import React, {FC, useState} from 'react'
+import {useAppDispatch, useAppSelector} from '../../redux/store'
 import useSound from 'use-sound'
+import cn from 'classnames'
+
 import sound from '../../sounds/dzyn.mp3'
 
 import styles from './Timer.module.css'
-import { addPomodoroComplete } from '../../redux/slices/todos'
+import {addPomodoroComplete} from '../../redux/slices/todos'
 
-interface TimerProps {}
+interface TimerProps {
+}
 
 const Timer: FC<TimerProps> = () => {
   const todos = useAppSelector(state => state.todos.todos)
@@ -23,7 +26,9 @@ const Timer: FC<TimerProps> = () => {
   }
 
   return (
-    <div className={styles.Timer}>
+    <div className={cn(styles.Timer, {
+      [styles.working]: isTimerWorking
+    })}>
       {activeTodo ? (
         <>
           <header className={styles.header}>
@@ -51,8 +56,8 @@ const Timer: FC<TimerProps> = () => {
               )}
             </div>
             <div className={styles.buttons}>
-              <button className={styles.start} onClick={handleStart}>
-                Старт
+              <button className={styles.start} onClick={isTimerWorking ? handlePause : handleStart}>
+                {isTimerWorking ? 'Пауза' : 'Старт'}
               </button>
               <button className={styles.pause} onClick={handlePause}>
                 Стоп
@@ -79,11 +84,11 @@ interface CountDownProps {
 }
 
 const CountDown: FC<CountDownProps> = ({
-  minutes = 0,
-  seconds = 0,
-  isTimerWorking,
-  activeTodoId,
-}) => {
+                                         minutes = 0,
+                                         seconds = 0,
+                                         isTimerWorking,
+                                         activeTodoId,
+                                       }) => {
   const [over, setOver] = React.useState(false)
   const [[m, s], setTime] = React.useState([minutes, seconds])
   const [play] = useSound(sound)
@@ -114,7 +119,7 @@ const CountDown: FC<CountDownProps> = ({
 
   return (
     <div>
-      <div>{`${m.toString().padStart(2, '0')}:${s
+      <div className={styles.numbers}>{`${m.toString().padStart(2, '0')}:${s
         .toString()
         .padStart(2, '0')}`}</div>
     </div>
