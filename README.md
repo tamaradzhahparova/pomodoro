@@ -8,7 +8,7 @@
 - запустить таймер
 - менять активные задачи
 
-#Демо 
+## Демо 
 
 https://tamaradzhahparova.github.io/pomodoro/
 
