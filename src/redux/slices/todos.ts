@@ -23,7 +23,7 @@ const initialState: TodosSlice = {
       completePomodoro: 0,
     },
   ],
-  duration: 1,
+  duration: 25,
 }
 
 export const todos = createSlice({

@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import {useAppDispatch, useAppSelector} from '../../redux/store'
 import useSound from 'use-sound'
 import cn from 'classnames'
@@ -17,12 +17,19 @@ const Timer: FC<TimerProps> = () => {
   const duration = useAppSelector(state => state.todos.duration)
 
   const [isTimerWorking, setIsTimerWorking] = useState<boolean>(false)
+  const [resetTimer, setResetTimer] = useState<boolean>(false)
 
-  const handleStart = () => {
-    setIsTimerWorking(true)
+  const handleWork = (value: boolean) => {
+    setIsTimerWorking(value)
+    if (value) setResetTimer(false)
   }
-  const handlePause = () => {
-    setIsTimerWorking(false)
+
+  const handleReset = () => {
+    setResetTimer(true)
+  }
+
+  const addMinutes = () => {
+
   }
 
   return (
@@ -43,7 +50,10 @@ const Timer: FC<TimerProps> = () => {
                 minutes={duration}
                 isTimerWorking={isTimerWorking}
                 activeTodoId={activeTodo?.id}
+                resetTimer={resetTimer}
+                handleStart={handleWork}
               />
+              {!isTimerWorking && <button className={styles.buttonAdd} onClick={addMinutes}>+</button>}
             </div>
             <div className={styles.currentTodo}>
               {activeTodo ? (
@@ -56,11 +66,11 @@ const Timer: FC<TimerProps> = () => {
               )}
             </div>
             <div className={styles.buttons}>
-              <button className={styles.start} onClick={isTimerWorking ? handlePause : handleStart}>
+              <button className={styles.start} onClick={() => isTimerWorking ? handleWork(false) : handleWork(true)}>
                 {isTimerWorking ? 'Пауза' : 'Старт'}
               </button>
-              <button className={styles.pause} onClick={handlePause}>
-                Стоп
+              <button className={styles.pause} onClick={handleReset}>
+                Пропустить
               </button>
             </div>
           </div>
@@ -81,6 +91,8 @@ interface CountDownProps {
   seconds?: number
   isTimerWorking: boolean
   activeTodoId?: number
+  resetTimer: boolean
+  handleStart: (value: boolean) => void
 }
 
 const CountDown: FC<CountDownProps> = ({
@@ -88,6 +100,8 @@ const CountDown: FC<CountDownProps> = ({
                                          seconds = 0,
                                          isTimerWorking,
                                          activeTodoId,
+                                         resetTimer,
+                                         handleStart
                                        }) => {
   const [over, setOver] = React.useState(false)
   const [[m, s], setTime] = React.useState([minutes, seconds])
@@ -102,7 +116,6 @@ const CountDown: FC<CountDownProps> = ({
       setOver(true)
       play()
       if (activeTodoId) {
-        console.log('complete')
         dispatch(addPomodoroComplete(activeTodoId))
       }
     } else if (s === 0) {
@@ -116,6 +129,16 @@ const CountDown: FC<CountDownProps> = ({
     const timerID = setInterval(() => tick(), 1000)
     return () => clearInterval(timerID)
   })
+
+  useEffect(() => {
+    const reset = () => {
+      setTime([minutes, seconds]);
+      setOver(false);
+      handleStart(false)
+    };
+
+    if (resetTimer) reset()
+  }, [minutes, resetTimer, seconds, handleStart])
 
   return (
     <div>
