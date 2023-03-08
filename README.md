@@ -8,10 +8,10 @@
 - запустить таймер
 - менять активные задачи
 
-## Демо 
+## Screenshots
 
-https://tamaradzhahparova.github.io/pomodoro/
-
+- Главный экран
+<img align="center" width="100%" src="./public/images/1.png">
 
 
 
