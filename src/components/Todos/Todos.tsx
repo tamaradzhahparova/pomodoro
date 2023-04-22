@@ -13,7 +13,7 @@ const Todos: FC<TodosProps> = () => {
   const todos = useAppSelector(state => state.todos.todos)
 
   const addNewTask = () => {
-    if (newTask) dispatch(
+    if (newTask.trim()) dispatch(
       addTodo({
         id: todos.length + 1,
         name: newTask,
